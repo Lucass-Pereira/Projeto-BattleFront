@@ -1,0 +1,201 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://art/Enemy 1.png" type="Texture" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://art/Player.png" type="Texture" id=4]
+[ext_resource path="res://En1.gd" type="Script" id=5]
+[ext_resource path="res://art/Enemy2.png" type="Texture" id=6]
+[ext_resource path="res://Enemy2.gd" type="Script" id=7]
+[ext_resource path="res://art/image-asset.jpeg" type="Texture" id=8]
+[ext_resource path="res://art/Enemy3.png" type="Texture" id=9]
+[ext_resource path="res://Enemy3.gd" type="Script" id=10]
+[ext_resource path="res://Enemy4.gd" type="Script" id=11]
+[ext_resource path="res://art/Enemy4.png" type="Texture" id=12]
+[ext_resource path="res://art/Music.mp3" type="AudioStream" id=13]
+[ext_resource path="res://art/lblBattlfront.png" type="Texture" id=14]
+[ext_resource path="res://art/Start-Button-Vector-PNG.png" type="Texture" id=15]
+[ext_resource path="res://art/mainBG.png" type="Texture" id=16]
+
+[sub_resource type="CircleShape2D" id=6]
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 34.0
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 34.0
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 34.0
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -10, -7, 0, 0, 0, 0, 1074, -6, 0, 0, 0, 0, 1080, 371, 0, 0, 0, 0, 1080, 720, 0, 0, 0, 0, -9, 731, 0, 0, 0, 0, -7, 606, 0, 0, 0, 0, -10, -18 )
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="play_area" type="Sprite" parent="."]
+position = Vector2( 534, 375 )
+scale = Vector2( 1.01105, 0.91 )
+texture = ExtResource( 8 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 540, 360 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 1, 2 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -3, 2 )
+scale = Vector2( 1.5, 1.1 )
+shape = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2( -6, 3 )
+scale = Vector2( 1.5, 1 )
+shape = SubResource( 13 )
+
+[node name="Enemy" type="KinematicBody2D" parent="."]
+collision/safe_margin = 1.2
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Enemy"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Collisionshape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2( -11, 0 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2( -11, 0 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 8 )
+
+[node name="Enemy2" type="KinematicBody2D" parent="."]
+collision/safe_margin = 1.2
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Enemy2"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+position = Vector2( -6, -9 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="Enemy2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/Area2D"]
+position = Vector2( -6, -9 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 10 )
+
+[node name="Enemy3" type="KinematicBody2D" parent="."]
+collision/safe_margin = 1.2
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="Enemy3"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+position = Vector2( -5, -2 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="Enemy3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3/Area2D"]
+position = Vector2( -4, -2 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 12 )
+
+[node name="Enemy4" type="KinematicBody2D" parent="."]
+collision/safe_margin = 1.2
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Enemy4"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4"]
+position = Vector2( -2, -4 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="Enemy4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4/Area2D"]
+position = Vector2( -2, -5 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 12 )
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2( -10, -7 )
+rotation = -0.00491808
+
+[node name="menu" type="Sprite" parent="."]
+position = Vector2( 534.156, 365 )
+scale = Vector2( 1.0606, 1.4549 )
+texture = ExtResource( 16 )
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 553.0
+margin_right = 644.0
+margin_bottom = 635.0
+icon = ExtResource( 15 )
+
+[node name="lblNome" type="Sprite" parent="."]
+position = Vector2( 534, 110 )
+texture = ExtResource( 14 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_Player_body_entered"]
+[connection signal="shot" from="Enemy" to="." method="_on_Enemy_shot"]
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_Enemy_body_entered"]
+[connection signal="shot2" from="Enemy2" to="." method="_on_Enemy2_shot2"]
+[connection signal="body_entered" from="Enemy2/Area2D" to="Enemy2" method="_on_Enemy2_body_entered"]
+[connection signal="shot3" from="Enemy3" to="." method="_on_Enemy3_shot3"]
+[connection signal="body_entered" from="Enemy3/Area2D" to="Enemy3" method="_on_Enemy3_body_entered"]
+[connection signal="shot4" from="Enemy4" to="." method="_on_Enemy4_shot4"]
+[connection signal="body_entered" from="Enemy4/Area2D" to="Enemy4" method="_on_Area2D_body_entered"]
+[connection signal="button_up" from="StartButton" to="." method="_on_StartButton_up"]
+[connection signal="timeout" from="Timer" to="." method="_spawn_2"]
+[connection signal="timeout" from="Timer" to="." method="_spawn_3"]
+[connection signal="timeout" from="Timer" to="." method="_spawn_1"]
+[connection signal="timeout" from="Timer" to="." method="_spawn_4"]
